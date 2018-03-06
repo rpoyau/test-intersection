@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.collections.*?>
+
+<GridPane fx:controller="application.Controller"
+    xmlns:fx="http://javafx.com/fxml" layoutX="10.0" layoutY="10.0"
+    prefHeight="250.0" prefWidth="400.0" hgap="10" vgap="10">
+    <padding>
+        <Insets top="25" right="25" bottom="10" left="25" />
+    </padding>
+
+    <Text text="Set sizes" GridPane.columnIndex="0"
+        GridPane.rowIndex="0" GridPane.columnSpan="2" />
+
+    <Label text="list A size:" GridPane.columnIndex="0"
+        GridPane.rowIndex="1" />
+
+    <TextField fx:id="aSizeField" GridPane.columnIndex="1"
+        GridPane.rowIndex="1" />
+
+    <Label text="list B size:" GridPane.columnIndex="0"
+        GridPane.rowIndex="2" />
+
+    <TextField fx:id="bSizeField" GridPane.columnIndex="1"
+        GridPane.rowIndex="2" />
+
+    <Label text="Hash:" GridPane.columnIndex="0"
+        GridPane.rowIndex="3" />
+
+    <ChoiceBox fx:id="hashListField" value="list A"
+        GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="list A" />
+                <String fx:value="list B" />
+            </FXCollections>
+        </items>
+    </ChoiceBox>
+
+
+    <HBox spacing="10" alignment="bottom_right"
+        GridPane.columnIndex="1" GridPane.rowIndex="4">
+        <Button text="Run.." onAction="#onRunClick" />
+    </HBox>
+
+    <Text fx:id="intersectionSize" GridPane.columnIndex="1"
+        GridPane.rowIndex="6" />
+
+    <Text fx:id="intersectionDuration" GridPane.columnIndex="1"
+        GridPane.rowIndex="7" />
+
+
+</GridPane>
