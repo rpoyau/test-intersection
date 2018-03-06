@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="list-intersection" default="compile"
+         basedir="." >
+
+  <target name="clean">
+      <delete dir="build" />
+  </target>
+  <target name='compile' depends="clean">
+    <mkdir dir="build/classes" />
+
+    <javac includeantruntime="false" source="1.8" target="1.8" srcdir="src" destdir="build/classes" encoding="UTF-8">
+      <classpath>
+	<fileset dir="lib">
+	  <include name="*"/>
+	</fileset>
+      </classpath>
+    </javac>
+
+    <!-- Copy over none Java-Files -->
+    <copy todir="build/classes">
+      <fileset dir="src">
+	<exclude name="**/*.java"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="dist">
+    <mkdir dir="build/dist"/>
+    <jar destfile="build/dist/test-intersection.jar" basedir="build/classes">
+      <manifest>
+        <attribute name="Main-Class" value="application.Main"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="run" depends="dist">
+    <java jar="build/dist/test-intersection.jar" fork="true"/>
+  </target>
+
+</project>
